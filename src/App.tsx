@@ -3,6 +3,7 @@ import { useState } from "react";
 import viteLogo from "/vite.svg";
 
 import reactLogo from "./assets/react.svg";
+import Camera from "./components/Camera";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -10,6 +11,7 @@ function App() {
   return (
     <>
       <div>
+        <Camera />
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
