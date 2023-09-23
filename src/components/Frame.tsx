@@ -1,16 +1,23 @@
 import styled from "@emotion/styled";
 
 import theme from "../styles/theme";
+import CheckIcon from "./icons/CheckIcon";
 
 interface FrameProps {
   direction: "vertical" | "square";
   color: keyof typeof theme.colors;
   imgSrc: string[];
+  checked?: boolean;
 }
 
-const Frame = ({ direction, color, imgSrc }: FrameProps) => {
+const Frame = ({ direction, color, imgSrc, checked }: FrameProps) => {
   return (
     <Container direction={direction} color={color}>
+      {checked && (
+        <IconContainer>
+          <CheckIcon />
+        </IconContainer>
+      )}
       {direction === "vertical" ? (
         imgSrc.map((img, index) => <StyledImg key={index} src={img} width={80} height={48} />)
       ) : (
@@ -40,6 +47,7 @@ const Frame = ({ direction, color, imgSrc }: FrameProps) => {
 export default Frame;
 
 const Container = styled.div<Pick<FrameProps, "color" | "direction">>`
+  position: relative;
   width: ${({ direction }) => (direction === "vertical" ? "100px" : "128px")};
   height: ${({ direction }) => (direction === "vertical" ? "232px" : "184px")};
   background-color: ${({ color }) => theme.colors[color]};
@@ -60,4 +68,12 @@ const SquareImgContainer = styled.div<{ side: "left" | "right" }>`
 
 const StyledImg = styled.img`
   object-fit: cover;
+`;
+
+const IconContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 `;
