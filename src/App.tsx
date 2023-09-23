@@ -1,5 +1,4 @@
 import CTAButton from "./components/CTAButton";
-import Camera from "./components/Camera";
 import CameraStep from "./components/steps/CameraStep";
 import CompleteStep from "./components/steps/CompleteStep";
 import FrameSelectStep from "./components/steps/FrameSelectStep";
@@ -20,6 +19,7 @@ function App() {
 
   return (
     <main>
+      <button onClick={() => moveBackward()}>뒤로가기</button>
       {currentElement}
       {elements.length - 1 > currentStep && (
         <CTAButton onClick={() => moveForward()}>다음스텝으로</CTAButton>
