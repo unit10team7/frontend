@@ -1,31 +1,48 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import Card from "./Card";
-import Label from "./Label";
+import styled from "@emotion/styled";
 
-export const Slider = () => {
+import Card from "./Card";
+import { ImgSrc } from "../types";
+
+interface SliderProps {
+  label: string;
+  imgSrc: ImgSrc[];
+  direction?: "vertical" | "horizontal";
+}
+
+const Slider = ({ label, imgSrc, direction = "vertical" }: SliderProps) => {
   const [ref] = useKeenSlider<HTMLDivElement>({
-    loop: true,
     mode: "free-snap",
     slides: {
       perView: 2.5,
-      spacing: 17,
+      spacing: 13,
     },
   });
+
   return (
-    <div>
+    <Container>
+      <StyledSpan>{label}</StyledSpan>
       <div ref={ref} className="keen-slider">
-        <Card className="keen-slider__slide">1</Card>
-        <Card className="keen-slider__slide">2</Card>
-        <Card className="keen-slider__slide">3</Card>
-        <Card className="keen-slider__slide">4</Card>
-        <Card className="keen-slider__slide">5</Card>
-        <Card className="keen-slider__slide">6</Card>
-        <Card className="keen-slider__slide">7</Card>
-        <Card className="keen-slider__slide">8</Card>
-        <Card className="keen-slider__slide">9</Card>
-        <Card className="keen-slider__slide">10</Card>
+        {imgSrc.map((img) => (
+          <div key={img.id} className="keen-slider__slide">
+            <Card direction={direction} url={img.url} />
+          </div>
+        ))}
       </div>
-    </div>
+    </Container>
   );
 };
+
+export default Slider;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+`;
+
+const StyledSpan = styled.span`
+  font-size: 18px;
+`;
