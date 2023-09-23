@@ -40,12 +40,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-<<<<<<< HEAD
-  gap: 16px;
-  padding-bottom: 10px;
-=======
   gap: 12px;
->>>>>>> 86056464ecb9cd7ef7a5cb6f958a174a43aae619
 `;
 
 const StyledSpan = styled.span`
