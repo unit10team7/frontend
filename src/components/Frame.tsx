@@ -16,7 +16,7 @@ export interface FrameProps {
 
 const Frame = ({ direction, color, imgSrc, isChecked, style }: FrameProps) => {
   return (
-    <Container direction={direction} color={color} style={style}>
+    <Container direction={direction} color={color} style={style} id="frame">
       {isChecked && (
         <IconContainer>
           <CheckIcon />

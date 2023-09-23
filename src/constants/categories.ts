@@ -4,7 +4,7 @@ interface Catogory {
 }
 
 const categories: Catogory[] = [
-  // { id: 1, title: "한터차트 인기 아이돌 TOP 5" },
+  { id: 0, title: "픽픽 선정 TOP 5" },
   { id: 1, title: "남친짤" },
   { id: 2, title: "인싸 맛보기" },
   { id: 3, title: "우己l 우정 영원ぁı" },

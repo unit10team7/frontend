@@ -2,7 +2,7 @@ import { FrameProps } from "../components/Frame";
 
 export interface ImgSrc {
   id: number;
-  categoryId: number;
+  categoryId?: number;
   imageUrl: string;
 }
 
