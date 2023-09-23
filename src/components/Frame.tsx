@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 
 import theme from "../styles/theme";
 import CheckIcon from "./icons/CheckIcon";
-
+import { ImgSrc } from "../types";
+import StyledImg from "./StyledImg";
 interface FrameProps {
   direction: "vertical" | "square";
   color: keyof typeof theme.colors;
-  imgSrc: string[];
+  imgSrc: ImgSrc[];
   checked?: boolean;
 }
 
@@ -19,14 +20,14 @@ const Frame = ({ direction, color, imgSrc, checked }: FrameProps) => {
         </IconContainer>
       )}
       {direction === "vertical" ? (
-        imgSrc.map((img, index) => <StyledImg key={index} src={img} width={80} height={48} />)
+        imgSrc.map((img) => <StyledImg key={img.id} src={img.url} width={80} height={48} />)
       ) : (
         <>
           <SquareImgContainer side="left">
             {imgSrc.map(
               (img, index) =>
                 (index === 0 || index === 2) && (
-                  <StyledImg key={index} src={img} width={52} height={80} />
+                  <StyledImg key={img.id} src={img.url} width={52} height={80} />
                 ),
             )}
           </SquareImgContainer>
@@ -34,7 +35,7 @@ const Frame = ({ direction, color, imgSrc, checked }: FrameProps) => {
             {imgSrc.map(
               (img, index) =>
                 (index === 1 || index === 3) && (
-                  <StyledImg key={index} src={img} width={52} height={80} />
+                  <StyledImg key={img.id} src={img.url} width={52} height={80} />
                 ),
             )}
           </SquareImgContainer>
@@ -64,10 +65,6 @@ const SquareImgContainer = styled.div<{ side: "left" | "right" }>`
   gap: 4px;
 
   justify-content: ${({ side }) => (side === "left" ? "flex-start" : "flex-end")};
-`;
-
-const StyledImg = styled.img`
-  object-fit: cover;
 `;
 
 const IconContainer = styled.div`
