@@ -45,4 +45,5 @@ const Container = styled.div`
 
 const StyledSpan = styled.span`
   font-size: 18px;
+  padding-top: 10px;
 `;

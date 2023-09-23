@@ -19,7 +19,6 @@ export default Card;
 
 const Container = styled.div<Pick<CardProps, "direction">>`
   display: flex;
-
   /* width: ${({ direction }) => (direction === "vertical" ? "140px" : "240px")}; */
   height: ${({ direction }) => (direction === "vertical" ? "240px" : "132px")};
   border-radius: 16px;
