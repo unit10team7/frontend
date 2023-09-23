@@ -1,5 +1,6 @@
 import { Global, css } from "@emotion/react";
 import emotionReset from "emotion-reset";
+import "./font.css";
 
 const GlobalStyle = () => {
   return (
@@ -17,12 +18,12 @@ const GlobalStyle = () => {
           box-sizing: border-box;
         }
 
-        /* body,
+        body,
         button,
         input,
         textarea {
-          font-family: "Noto Sans KR", sans-serif;
-        } */
+          font-family: "gmarket-sans", sans-serif;
+        }
 
         button {
           cursor: pointer;
