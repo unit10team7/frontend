@@ -8,10 +8,11 @@ import FrameSelectStep from "./components/steps/FrameSelectStep";
 import PhotoSelectStep from "./components/steps/PhotoSelectStep";
 import useStep from "./hooks/useStep";
 import { State } from "./types";
+import Arrow from "./components/icons/Arrow";
 
 const defaultState: State = {
   pose: [],
-  frame: { direction: "vertical", color: "black" },
+  frame: { direction: "vertical", color: "black", id: -1 },
   capture: [],
 };
 
@@ -25,7 +26,7 @@ function App() {
 
   const elements = [
     <PhotoSelectStep key="PhotoSelectStep" state={state} setState={setState} />,
-    <FrameSelectStep key="FrameSelectStep" />,
+    <FrameSelectStep key="FrameSelectStep" state={state} setState={setState} />,
     <CameraStep key="CameraStep" />,
     <CompleteStep key="CompleteStep" />,
   ];
@@ -34,15 +35,52 @@ function App() {
     elements: elements,
   });
 
-  const isCTAActive = state.pose.length === 4;
+  const getCTAState = (currentStep: number): { isActive: boolean; text: string } => {
+    switch (currentStep) {
+      case 0: {
+        return {
+          isActive: state.pose.length === 4,
+          text: state.pose.length === 4 ? "다음으로" : `${state.pose.length}/4`,
+        };
+      }
+      case 1: {
+        return {
+          isActive: state.frame.id !== -1,
+          text: "다음으로",
+        };
+      }
+      case 2: {
+        return {
+          isActive: state.capture.length === 4,
+          text: "다음으로",
+        };
+      }
+      default: {
+        return {
+          isActive: false,
+          text: "다음으로",
+        };
+      }
+    }
+  };
 
   return (
     <main>
-      {currentStep > 0 && <button onClick={() => moveBackward()}>뒤로가기</button>}
+      {currentStep > 0 && (
+        <Header>
+          <button onClick={() => moveBackward()}>
+            <Arrow />
+          </button>
+        </Header>
+      )}
       {currentElement}
-      {elements.length - 1 > currentStep && (
-        <FixedCTAButton width={width} onClick={() => moveForward()} isActive={isCTAActive}>
-          {isCTAActive ? "다음으로" : `${state.pose.length}/4`}
+      {elements.length - 1 > currentStep && currentStep < 2 && (
+        <FixedCTAButton
+          width={width}
+          onClick={() => moveForward()}
+          isActive={getCTAState(currentStep).isActive}
+        >
+          {getCTAState(currentStep).text}
         </FixedCTAButton>
       )}
     </main>
@@ -56,4 +94,12 @@ const FixedCTAButton = styled(CTAButton)<{ width: number }>`
   bottom: 28px;
   width: ${({ width }) => width}px;
   z-index: 9999;
+`;
+
+const Header = styled.header`
+  width: 100%;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 `;
