@@ -41,8 +41,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
+  padding-bottom: 10px;
 `;
 
 const StyledSpan = styled.span`
   font-size: 18px;
+  padding-top: 10px;
 `;

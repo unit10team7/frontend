@@ -18,7 +18,7 @@ export interface MiddleProps {
 const Mainpage = (props: any) => {
   return (
     <MainContainer>
-      <Title />
+      <Title>포즈 4개를 선택해주세요</Title>
       <MiddleContainer>
         <Slider label={""} imgSrc={[]} />
       </MiddleContainer>

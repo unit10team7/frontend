@@ -1,6 +1,6 @@
 //import Camera from "./components/Camera";
 // import { Slider } from "./components/Slider";
-// import Title from "./components/Title";
+import Title from "./components/Title";
 // import Label from "./components/Label";
 import Camera from "./components/Camera";
 import Mainpage from "./pages/Mainpage";
