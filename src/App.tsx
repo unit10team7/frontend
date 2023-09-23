@@ -77,7 +77,9 @@ function App() {
       {elements.length - 1 > currentStep && currentStep < 2 && (
         <FixedCTAButton
           width={width}
-          onClick={() => moveForward()}
+          onClick={() => {
+            getCTAState(currentStep).isActive && moveForward();
+          }}
           isActive={getCTAState(currentStep).isActive}
         >
           {getCTAState(currentStep).text}

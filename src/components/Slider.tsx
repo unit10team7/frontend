@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
+import { useEffect, useState } from "react";
 
 import { useGetSlider } from "../hooks/apis/useGetSlider";
 import { ImgSrc, State } from "../types";
@@ -16,6 +17,11 @@ interface SliderProps {
 }
 
 const Slider = ({ categoryId, label, direction = "vertical", state, setState }: SliderProps) => {
+  const [width, setWidth] = useState<number>(0);
+
+  useEffect(() => {
+    setWidth((document.querySelector("#layout")?.getBoundingClientRect().width ?? 0) - 32);
+  }, []);
   const { status, data, isSuccess, fetchNextPage, isFetching, hasNextPage } =
     useGetSlider(categoryId);
 
@@ -52,7 +58,7 @@ const Slider = ({ categoryId, label, direction = "vertical", state, setState }: 
     <Container>
       <StyledSpan>{label}</StyledSpan>
       <Swiper
-        slidesPerView={2.5}
+        slidesPerView={width > 400 ? 3 : 2.5}
         spaceBetween={8}
         freeMode={true}
         modules={[FreeMode, Pagination]}
