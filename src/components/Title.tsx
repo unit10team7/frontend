@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import styled from "@emotion/styled";
-import GlobalStyle from "../styles/GlobalStyle";
+// import GlobalStyle from "../styles/GlobalStyle";
 
 interface titleProps {
   titles?: string;

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { HtmlAttributes } from "csstype";
+// import { HtmlAttributes } from "csstype";
 
 interface CardProps {
   direction?: "vertical" | "horizontal";

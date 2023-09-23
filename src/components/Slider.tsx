@@ -23,10 +23,6 @@ export const Slider = () => {
       <Card className="keen-slider__slide">8</Card>
       <Card className="keen-slider__slide">9</Card>
       <Card className="keen-slider__slide">10</Card>
-      {/* <div className="keen-slider__slide number-slide2">2</div>
-      <div className="keen-slider__slide number-slide3">3</div>
-      <div className="keen-slider__slide number-slide4">4</div>
-      <div className="keen-slider__slide number-slide5">5</div> */}
     </div>
   );
 };
