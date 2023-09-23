@@ -1,5 +1,5 @@
-// import React, { FormEvent, ReactNode } from "react";
 import styled from "@emotion/styled";
+
 import { Reply } from "../icons/Reply";
 
 const TimeIcon = () => {

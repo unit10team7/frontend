@@ -1,5 +1,6 @@
-import React, { FormEvent, ReactNode } from "react";
 import styled from "@emotion/styled";
+import { ReactNode } from "react";
+
 import theme from "../../styles/theme";
 import TimeIcon from "./TimeIcon";
 import TimeSecond from "./TimeSecond";
