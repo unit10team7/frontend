@@ -4,8 +4,9 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
-import GlobalStyle from "./styles/GlobalStyle.tsx";
 import { worker } from "./mock/browser.ts";
+import GlobalStyle from "./styles/GlobalStyle.tsx";
+import Layout from "./components/Layout.tsx";
 
 if (process.env.NODE_ENV === "development") {
   worker.start();
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <QueryErrorResetBoundary>
         <GlobalStyle />
         <ErrorBoundary>
-          <App />
+          <Layout>
+            <App />
+          </Layout>
         </ErrorBoundary>
       </QueryErrorResetBoundary>
     </QueryClientProvider>
