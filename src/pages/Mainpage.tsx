@@ -1,10 +1,9 @@
 import React from "react";
 import Card from "../components/Card";
 import Title from "../components/Title";
-import Label from "../components/Label";
 import Frame from "../components/Frame";
 import styled from "@emotion/styled";
-import { Slider } from "../components/Slider";
+import Slider from "../components/Slider";
 
 export interface MainProps {
   className?: string;
@@ -21,20 +20,16 @@ const Mainpage = (props: any) => {
     <MainContainer>
       <Title />
       <MiddleContainer>
-        <Label />
-        <Slider />
+        <Slider label={""} imgSrc={[]} />
       </MiddleContainer>
       <MiddleContainer>
-        <Label />
-        <Slider />
+        <Slider label={""} imgSrc={[]} />
       </MiddleContainer>
       <MiddleContainer>
-        <Label />
-        <Slider />
+        <Slider label={""} imgSrc={[]} />
       </MiddleContainer>
       <MiddleContainer>
-        <Label />
-        <Slider />
+        <Slider label={""} imgSrc={[]} />
       </MiddleContainer>
     </MainContainer>
   );
