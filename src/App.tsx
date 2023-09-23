@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
 
 import CTAButton from "./components/CTAButton";
+import Arrow from "./components/icons/Arrow";
 import CameraStep from "./components/steps/CameraStep";
 import CompleteStep from "./components/steps/CompleteStep";
 import FrameSelectStep from "./components/steps/FrameSelectStep";
 import PhotoSelectStep from "./components/steps/PhotoSelectStep";
 import useStep from "./hooks/useStep";
 import { State } from "./types";
-import Arrow from "./components/icons/Arrow";
 
 const defaultState: State = {
   pose: [],
