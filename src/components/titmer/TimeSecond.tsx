@@ -19,6 +19,7 @@ const TimerText = styled.text`
   word-spacing: 15px;
   justify-content: space-between;
   color: black;
+  padding-top: 7.5px;
 `;
 
 export default TimeSecond;

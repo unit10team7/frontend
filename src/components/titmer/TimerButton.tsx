@@ -28,7 +28,7 @@ const TimerContainer = styled.button`
   border-radius: 30px;
   text-align: center;
   padding-left: 60px;
-  padding-top: 15px;
+  padding-top: 9px;
 `;
 
 export default TimerButton;

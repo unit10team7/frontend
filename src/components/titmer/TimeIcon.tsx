@@ -16,9 +16,9 @@ const TimerText = styled.text`
   display: flex;
   text-align: center;
   word-spacing: 30px;
-  justify-content: space-between;
+  gap: 30px;
   padding-left: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   color: black;
 `;
 
