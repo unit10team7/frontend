@@ -21,7 +21,7 @@ const Title = ({ size, color }: titleProps) => {
 export const TextArea = styled.div<titleProps>`
   font-family: "gmarket-sans", sans-serif;
   font-size: 30px;
-  color: "yellow";
+  color: #9e00ff;
   height: 100vh;
   text-align: left;
   justify-content: center;
