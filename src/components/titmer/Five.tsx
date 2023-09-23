@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+export interface SecondProps {
+  name: string;
+}
+
 const Five = () => {
   return (
     <div>
@@ -11,7 +15,7 @@ const Five = () => {
 const TimerText = styled.text`
   font-size: 18px;
   word-spacing: 30px;
-  display: flex-row;
+  flex-direction: row;
   justify-content: space-between;
   color: black;
 `;
