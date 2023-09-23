@@ -10,6 +10,7 @@ import CompleteStep from "./components/steps/CompleteStep";
 import FrameSelectStep from "./components/steps/FrameSelectStep";
 import PhotoSelectStep from "./components/steps/PhotoSelectStep";
 import useStep from "./hooks/useStep";
+import TimerButton from "./components/titmer/TimerButton";
 
 const elements = [
   <PhotoSelectStep key="PhotoSelectStep" />,
@@ -25,11 +26,12 @@ function App() {
 
   return (
     <main>
-      <button onClick={() => moveBackward()}>뒤로가기</button>
+      {/* <button onClick={() => moveBackward()}>뒤로가기</button>
       {currentElement}
       {elements.length - 1 > currentStep && (
         <CTAButton onClick={() => moveForward()}>다음스텝으로</CTAButton>
-      )}
+      )} */}
+      <TimerButton />
     </main>
   );
 }

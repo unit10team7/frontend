@@ -43,7 +43,6 @@ const PhotoSelectStep = () => {
   return (
     <div>
       <Title>안녕하세요</Title>
-      <h1>안녕하세요</h1>
       {/* 첫번째 스텝, 사진 4장 고르는 스텝입니다. */}
       <Slider label="방탄소년단" imgSrc={imgSrcTemp} />
       <Slider label="아이브" imgSrc={imgSrcTemp} />
