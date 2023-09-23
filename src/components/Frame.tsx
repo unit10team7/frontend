@@ -6,17 +6,18 @@ import CheckIcon from "./icons/CheckIcon";
 import { ImgSrc } from "../types";
 import StyledImg from "./StyledImg";
 export interface FrameProps {
+  id: number;
   direction: "vertical" | "square";
   color: keyof typeof theme.colors;
   imgSrc: ImgSrc[];
-  checked?: boolean;
+  isChecked?: boolean;
   style?: CSSProperties;
 }
 
-const Frame = ({ direction, color, imgSrc, checked, style }: FrameProps) => {
+const Frame = ({ direction, color, imgSrc, isChecked, style }: FrameProps) => {
   return (
     <Container direction={direction} color={color} style={style}>
-      {checked && (
+      {isChecked && (
         <IconContainer>
           <CheckIcon />
         </IconContainer>

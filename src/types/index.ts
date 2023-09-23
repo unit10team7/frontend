@@ -8,6 +8,6 @@ export interface ImgSrc {
 
 export interface State {
   pose: ImgSrc[];
-  frame: Pick<FrameProps, "direction" | "color">;
+  frame: Pick<FrameProps, "direction" | "color" | "id">;
   capture: string[];
 }
