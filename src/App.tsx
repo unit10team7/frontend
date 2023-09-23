@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
 import CTAButton from "./components/CTAButton";
+import Camera from "./components/camera";
 import CameraStep from "./components/steps/CameraStep";
 import CompleteStep from "./components/steps/CompleteStep";
 import FrameSelectStep from "./components/steps/FrameSelectStep";
