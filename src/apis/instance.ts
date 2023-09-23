@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 
-const API_URL = "https://unit10team7.api";
+const API_URL = "http://ec2-43-201-77-73.ap-northeast-2.compute.amazonaws.com:8080";
 
 const instance = axios.create({
   baseURL: API_URL,

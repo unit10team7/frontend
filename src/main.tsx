@@ -5,13 +5,8 @@ import ReactModal from "react-modal";
 
 import App from "./App.tsx";
 import ErrorBoundary from "./components/ErrorBoundary.tsx";
-import { worker } from "./mock/browser.ts";
-import GlobalStyle from "./styles/GlobalStyle.tsx";
 import Layout from "./components/Layout.tsx";
-
-if (process.env.NODE_ENV === "development") {
-  worker.start();
-}
+import GlobalStyle from "./styles/GlobalStyle.tsx";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <QueryErrorResetBoundary>
         <GlobalStyle />
         <ErrorBoundary>
-          <Layout>
+          <Layout id="layout">
             <App />
           </Layout>
         </ErrorBoundary>

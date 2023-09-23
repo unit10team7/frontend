@@ -5,7 +5,7 @@ import theme from "../styles/theme";
 import CheckIcon from "./icons/CheckIcon";
 import { ImgSrc } from "../types";
 import StyledImg from "./StyledImg";
-interface FrameProps {
+export interface FrameProps {
   direction: "vertical" | "square";
   color: keyof typeof theme.colors;
   imgSrc: ImgSrc[];
@@ -22,14 +22,26 @@ const Frame = ({ direction, color, imgSrc, checked, style }: FrameProps) => {
         </IconContainer>
       )}
       {direction === "vertical" ? (
-        imgSrc.map((img) => <StyledImg key={img.id} src={img.url} width={80} height={48} />)
+        imgSrc.map((img) => (
+          <StyledImg
+            key={`${img.categoryId}_${img.id}`}
+            src={img.imageUrl}
+            width={80}
+            height={48}
+          />
+        ))
       ) : (
         <>
           <SquareImgContainer side="left">
             {imgSrc.map(
               (img, index) =>
                 (index === 0 || index === 2) && (
-                  <StyledImg key={img.id} src={img.url} width={52} height={80} />
+                  <StyledImg
+                    key={`${img.categoryId}_${img.id}`}
+                    src={img.imageUrl}
+                    width={52}
+                    height={80}
+                  />
                 ),
             )}
           </SquareImgContainer>
@@ -37,7 +49,12 @@ const Frame = ({ direction, color, imgSrc, checked, style }: FrameProps) => {
             {imgSrc.map(
               (img, index) =>
                 (index === 1 || index === 3) && (
-                  <StyledImg key={img.id} src={img.url} width={52} height={80} />
+                  <StyledImg
+                    key={`${img.categoryId}_${img.id}`}
+                    src={img.imageUrl}
+                    width={52}
+                    height={80}
+                  />
                 ),
             )}
           </SquareImgContainer>
