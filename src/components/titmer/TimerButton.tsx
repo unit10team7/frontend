@@ -26,8 +26,9 @@ const TimerContainer = styled.button`
   display: flex;
   border-radius: 30px;
   text-align: center;
-  padding-left: 15%;
-  padding-top: 1.7%;
+  padding-left: 10%;
+  padding-right: 12px;
+  padding-top: 9.5px;
   justify-content: space-between;
 `;
 

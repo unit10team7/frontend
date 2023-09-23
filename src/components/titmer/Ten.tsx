@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+export interface TimeProps {
+  onclick?: void;
+  // children:reactNode,
+}
 const Ten = () => {
   return (
     <div>
