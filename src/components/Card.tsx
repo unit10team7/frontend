@@ -1,26 +1,25 @@
-import React from "react";
 import styled from "@emotion/styled";
-import { CardProps } from "../type/type";
+import { HtmlAttributes } from "csstype";
 
-const Card = (CardProps: { className: string; children: any }) => {
+interface CardProps {
+  direction?: "vertical" | "horizontal";
+  className: string;
+  children: any;
+}
+
+const Card = ({ direction, className }: CardProps) => {
   return (
-    <div>
-      <Cards />
-    </div>
+    <Container className={className} direction={direction}>
+      {/* <img src={} /> */}
+    </Container>
   );
 };
 
-export const Cards = styled.div`
-  width: 141px;
-  height: 291px;
-  display: flex;
-  background-color: gray;
-  font-color: black;
-  gap: 30;
-  background: rgb(64, 175, 255);
-  background: linear-gradient(128deg, rgba(64, 175, 255, 1) 0%, rgba(63, 97, 255, 1) 100%);
-  margin: 50px;
-  border-radius: 25px;
+const Container = styled.div<Pick<CardProps, "direction">>`
+  width: ${({ direction }) => (direction === "vertical" ? "140px" : "240px")};
+  height: ${({ direction }) => (direction === "vertical" ? "240px" : "132px")};
+  border-radius: 16px;
+  background-color: red;
 `;
 
 export default Card;
