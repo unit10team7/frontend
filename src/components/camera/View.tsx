@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { forwardRef, useLayoutEffect, useState } from "react";
 import Webcam from "react-webcam";
 
+import useCountdown from "../../hooks/useCountdown";
+
 import { CameraType } from ".";
 
 const FORMAT_TPYE = "image/jpeg";
@@ -24,7 +26,7 @@ interface TimerProps {
 type LayoutType = "vertical" | "square";
 
 const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
-  { type, stepCount, url, layoutType },
+  { type, stepCount, timerInfo, url, layoutType },
   ref,
 ) {
   const [size, setSize] = useState<number>(0);
@@ -41,11 +43,11 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
 
   return (
     <View>
-      {/* <Timer
+      <Timer
         timerCount={timerInfo.timerCount}
         isTimerStart={timerInfo.isTimerStart}
         handleCountdownComplete={timerInfo.handleCountdownComplete}
-      /> */}
+      />
       <Step stepCount={stepCount} layout={layoutType} />
       <PosePhoto url={url} layout={layoutType} />
       <Webcam
@@ -59,15 +61,15 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
   );
 });
 
-// const Timer = ({ isTimerStart, timerCount, handleCountdownComplete }: TimerProps) => {
-//   const [currentCount] = useCountdown(timerCount, isTimerStart, handleCountdownComplete);
+const Timer = ({ isTimerStart, timerCount, handleCountdownComplete }: TimerProps) => {
+  const [currentCount] = useCountdown(timerCount, isTimerStart, handleCountdownComplete);
 
-//   return (
-//     <TimerContainer>
-//       <TimerFont isActive={isTimerStart}>{currentCount}</TimerFont>
-//     </TimerContainer>
-//   );
-// };
+  return (
+    <TimerContainer>
+      <TimerFont isActive={isTimerStart}>{currentCount}</TimerFont>
+    </TimerContainer>
+  );
+};
 
 const Step = ({ stepCount, layout }: { stepCount: number; layout: LayoutType }) => {
   const currentStep = `${stepCount}/4`;
@@ -87,24 +89,24 @@ const PosePhoto = ({ url, layout }: { url: string; layout: LayoutType }) => {
   );
 };
 
-// const TimerContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   z-index: 1;
-// `;
+const TimerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+`;
 
-// const TimerFont = styled.span<{ isActive: boolean }>`
-//   font-weight: 500;
-//   color: #ffffff;
-//   font-size: 96px;
-//   opacity: ${(props) => (props.isActive ? 1 : 0)};
-// `;
+const TimerFont = styled.span<{ isActive: boolean }>`
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 96px;
+  opacity: ${(props) => (props.isActive ? 1 : 0)};
+`;
 
 const StepFontContainer = styled.div<{ layout: LayoutType }>`
   display: flex;
