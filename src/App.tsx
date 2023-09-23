@@ -1,11 +1,12 @@
 //import Camera from "./components/Camera";
 import { Slider } from "./components/Slider";
 import Title from "./components/Title";
+import Label from "./components/Label";
 function App() {
   return (
     <main>
-      {/* <Camera /> */}
-      <Title />
+      {/* <Title /> */}
+      <Label />
     </main>
   );
 }

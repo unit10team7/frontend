@@ -25,7 +25,7 @@ export const TextArea = styled.div<titleProps>`
   height: 100vh;
   text-align: left;
   justify-content: center;
-  margin-top: 160px;
+  padding-top: 80px;
   margin-left: 22px;
 `;
 
