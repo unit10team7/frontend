@@ -3,12 +3,11 @@
 // import Title from "./components/Title";
 // import Label from "./components/Label";
 import Camera from "./components/Camera";
-
+import Mainpage from "./pages/Mainpage";
 function App() {
   return (
     <main>
-      {/* <Title /> */}
-      <Camera />
+      <Mainpage />
     </main>
   );
 }

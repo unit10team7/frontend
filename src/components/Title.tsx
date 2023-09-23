@@ -2,25 +2,24 @@
 import styled from "@emotion/styled";
 // import GlobalStyle from "../styles/GlobalStyle";
 
-interface titleProps {
+export interface titleProps {
   titles?: string;
   size?: string;
   color?: string;
+  children?: any;
 }
 
-const Title = ({ size, color }: titleProps) => {
+const Title = ({ size, color, titles, children }: titleProps) => {
   return (
-    <TextArea size={size} color={color}>
-      포즈를 4개
-      <br />
-      선택해주세요
+    <TextArea size={size} color={color} titles={titles}>
+      포즈를 4개 <br /> 선택해주세요
     </TextArea>
   );
 };
 
 export const TextArea = styled.div<titleProps>`
-  font-family: "gmarket-sans", sans-serif;
-  font-size: 30px;
+  font-family: "gmarket-sansbold", sans-serif;
+  font-size: 20px;
   color: #9e00ff;
   height: 100vh;
   text-align: left;

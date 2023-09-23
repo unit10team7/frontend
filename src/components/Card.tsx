@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 // import { HtmlAttributes } from "csstype";
+import Label from "./Label";
 
-interface CardProps {
+export interface CardProps {
   direction?: "vertical" | "horizontal";
   className: string;
   children: any;
@@ -9,9 +10,12 @@ interface CardProps {
 
 const Card = ({ direction, className }: CardProps) => {
   return (
-    <Container className={className} direction={direction}>
-      {/* <img src={} /> */}
-    </Container>
+    <div>
+      {/* <Label>한터차트 인기아이돌 TOP5</Label> */}
+      <Container className={className} direction={direction}>
+        {/* api 자리 */}
+      </Container>
+    </div>
   );
 };
 
