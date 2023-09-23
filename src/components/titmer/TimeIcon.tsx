@@ -1,6 +1,5 @@
-import React, { FormEvent, ReactNode } from "react";
+// import React, { FormEvent, ReactNode } from "react";
 import styled from "@emotion/styled";
-import theme from "../../styles/theme";
 import { Reply } from "../icons/Reply";
 
 const TimeIcon = () => {
@@ -15,9 +14,8 @@ const TimerText = styled.text`
   font-size: 18px;
   display: flex;
   text-align: center;
-  word-spacing: 30px;
-  gap: 30px;
-  padding-left: 50px;
+  gap: 10px;
+  padding-left: 20px;
   padding-bottom: 10px;
   color: black;
 `;

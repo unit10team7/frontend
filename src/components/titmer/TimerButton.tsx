@@ -1,7 +1,7 @@
 import React, { FormEvent, ReactNode } from "react";
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
-import { Reply } from "../icons/Reply";
+// import { Reply } from "../icons/Reply";
 import TimeIcon from "./TimeIcon";
 import TimeSecond from "./TimeSecond";
 
@@ -27,8 +27,9 @@ const TimerContainer = styled.button`
   display: flex;
   border-radius: 30px;
   text-align: center;
-  padding-left: 60px;
-  padding-top: 9px;
+  padding-left: 15%;
+  padding-top: 1.7%;
+  justify-content: space-between;
 `;
 
 export default TimerButton;

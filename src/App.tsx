@@ -1,9 +1,3 @@
-//import Camera from "./components/Camera";
-// import { Slider } from "./components/Slider";
-import Title from "./components/Title";
-// import Label from "./components/Label";
-import Camera from "./components/Camera";
-import CTAButton from "./components/CTAButton";
 import CameraStep from "./components/steps/CameraStep";
 import CompleteStep from "./components/steps/CompleteStep";
 import FrameSelectStep from "./components/steps/FrameSelectStep";
