@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { CSSProperties } from "react";
 
 import theme from "../styles/theme";
 import CheckIcon from "./icons/CheckIcon";
@@ -9,11 +10,12 @@ interface FrameProps {
   color: keyof typeof theme.colors;
   imgSrc: ImgSrc[];
   checked?: boolean;
+  style?: CSSProperties;
 }
 
-const Frame = ({ direction, color, imgSrc, checked }: FrameProps) => {
+const Frame = ({ direction, color, imgSrc, checked, style }: FrameProps) => {
   return (
-    <Container direction={direction} color={color}>
+    <Container direction={direction} color={color} style={style}>
       {checked && (
         <IconContainer>
           <CheckIcon />
