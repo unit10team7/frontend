@@ -11,7 +11,7 @@ const Five = () => {
 const TimerText = styled.text`
   font-size: 18px;
   word-spacing: 30px;
-  display-direction: flex-row;
+  display: flex-row;
   justify-content: space-between;
   color: black;
 `;
