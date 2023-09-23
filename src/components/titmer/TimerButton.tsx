@@ -13,7 +13,9 @@ const TimerButton = () => {
   return (
     <TimerContainer>
       <TimerText>5초 10초 15초</TimerText>
-      <TimerText>{/* <ReplyIcon /> */}</TimerText>
+      <TimerText>
+        <Reply />
+      </TimerText>
     </TimerContainer>
   );
 };
