@@ -52,7 +52,7 @@ const Slider = ({ categoryId, label, direction = "vertical", state, setState }: 
     <Container>
       <StyledSpan>{label}</StyledSpan>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={2.5}
         spaceBetween={8}
         freeMode={true}
         modules={[FreeMode, Pagination]}
@@ -101,4 +101,5 @@ const Container = styled.div`
 
 const StyledSpan = styled.span`
   font-size: 18px;
+  padding-top: 10px;
 `;
