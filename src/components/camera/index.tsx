@@ -17,6 +17,7 @@ const Camera = () => {
   const [photoImageList, setPhotoImage] = useState<string[]>([]);
   const [isTimerStart, setTimerStart] = useState(false);
   const [timerCount, setTimerCount] = useState(5);
+  const [timerButton, setTimerButton] = useState(false);
 
   const webcamRef = useRef<Webcam>(null);
   const captureHandler = useCallback(() => {
@@ -48,8 +49,8 @@ const Camera = () => {
     timerCount: timerCount,
     isTimerStart: isTimerStart,
     handleCountdownComplete: () => {
-      handleCaptureAndStep();
       setTimerStart(false);
+      handleCaptureAndStep();
     },
   };
 
@@ -70,10 +71,16 @@ const Camera = () => {
       />
       {/* 카메라 제어 영역 */}
       <Control
-        timerStartDispatcher={setTimerStart}
+        timerStartDispatcher={setTimerButton}
         timeDispatcher={setTimerCount}
         cameraStatusDispatcher={setCameraType}
-        handleCapture={handleCaptureAndStep}
+        handleCapture={
+          timerButton
+            ? () => {
+                setTimerStart(true);
+              }
+            : handleCaptureAndStep
+        }
       />
     </Section>
   );
