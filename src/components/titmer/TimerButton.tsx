@@ -1,7 +1,7 @@
 import React, { FormEvent, ReactNode } from "react";
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
-import { ReplyIcon } from "../icons/replyicon";
+import { Reply } from "../icons/Reply";
 
 export interface TimerProps {
   children: ReactNode;
@@ -13,9 +13,7 @@ const TimerButton = () => {
   return (
     <TimerContainer>
       <TimerText>5초 10초 15초</TimerText>
-      <TimerText>
-        <ReplyIcon />
-      </TimerText>
+      <TimerText>{/* <ReplyIcon /> */}</TimerText>
     </TimerContainer>
   );
 };

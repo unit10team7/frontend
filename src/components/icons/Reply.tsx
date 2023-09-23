@@ -1,4 +1,4 @@
-export const ReplyIcon = () => (
+export const Reply = () => (
   <svg width="33" height="33" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_276_1128)">
       <path
