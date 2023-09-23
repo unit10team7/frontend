@@ -2,6 +2,8 @@ import React, { FormEvent, ReactNode } from "react";
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
 import { Reply } from "../icons/Reply";
+import TimeIcon from "./TimeIcon";
+import TimeSecond from "./TimeSecond";
 
 export interface TimerProps {
   children: ReactNode;
@@ -12,10 +14,8 @@ export interface TimerProps {
 const TimerButton = () => {
   return (
     <TimerContainer>
-      <TimerText>5초 10초 15초</TimerText>
-      <TimerText>
-        <Reply />
-      </TimerText>
+      <TimeSecond />
+      <TimeIcon />
     </TimerContainer>
   );
 };
@@ -26,17 +26,9 @@ const TimerContainer = styled.button`
   height: 50px;
   display: flex;
   border-radius: 30px;
-`;
-
-const TimerText = styled.text`
-  font-size: 18px;
-  display: flex;
   text-align: center;
-  flex-direction: row;
-  word-spacing: 25px;
-  margin-left: 35px;
-  margin-top: 12px;
-  justify-content: space-between;
+  padding-left: 60px;
+  padding-top: 15px;
 `;
 
 export default TimerButton;

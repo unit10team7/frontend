@@ -3,7 +3,6 @@
 import Title from "./components/Title";
 // import Label from "./components/Label";
 import Camera from "./components/Camera";
-import Mainpage from "./pages/Mainpage";
 import CTAButton from "./components/CTAButton";
 import CameraStep from "./components/steps/CameraStep";
 import CompleteStep from "./components/steps/CompleteStep";
