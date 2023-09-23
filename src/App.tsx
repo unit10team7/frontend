@@ -1,9 +1,10 @@
-import Camera from "./components/Camera";
-
+//import Camera from "./components/Camera";
+import { Slider } from "./components/Slider";
 function App() {
   return (
     <main>
-      <Camera />
+      {/* <Camera /> */}
+      <Slider />
     </main>
   );
 }
