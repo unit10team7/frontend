@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { forwardRef } from "react";
+import { forwardRef, useLayoutEffect, useState } from "react";
 import Webcam from "react-webcam";
 
 import useCountdown from "../../hooks/useCountdown";
@@ -30,10 +30,18 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
   { type, stepCount, timerInfo, url, layoutType },
   ref,
 ) {
+  const [size, setSize] = useState<number>(0);
+
+  const layout = document.querySelector("#layout") as HTMLElement;
+
+  useLayoutEffect(() => {
+    setSize((layout.offsetWidth ?? 0) - 32);
+  }, [layout.offsetWidth]);
+
   const videoConstraints = {
     facingMode: type,
-    width: { ideal: isMobile() ? 400 : window.innerWidth - 32 },
-    height: { ideal: isMobile() ? 800 : window.innerHeight - 128 },
+    width: { ideal: isMobile() ? window.innerHeight - 128 : size },
+    height: { ideal: isMobile() ? size : window.innerHeight - 128 },
   };
 
   return (
