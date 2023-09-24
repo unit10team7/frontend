@@ -12,23 +12,32 @@ export interface FrameProps {
   imgSrc: ImgSrc[];
   isChecked?: boolean;
   style?: CSSProperties;
+  isResult?: boolean;
 }
 
-const Frame = ({ direction, color, imgSrc, isChecked, style }: FrameProps) => {
+const Frame = ({ direction, color, imgSrc, isChecked, style, isResult = false }: FrameProps) => {
   return (
-    <Container direction={direction} color={color} style={style}>
+    <Container direction={direction} color={color} style={style} id="frame">
       {isChecked && (
         <IconContainer>
           <CheckIcon />
         </IconContainer>
       )}
       {direction === "vertical" ? (
-        imgSrc.map((img) => (
+        imgSrc.map((img, index) => (
           <StyledImg
             key={`${img.categoryId}_${img.id}`}
             src={img.imageUrl}
-            width={80}
-            height={48}
+            width={isResult ? 48 : 80}
+            height={isResult ? 80 : 48}
+            style={{
+              transform: isResult ? "rotate(-90deg) scale(0.5)" : "none",
+              width: isResult ? undefined : "100%",
+              height: isResult ? "68%" : undefined,
+              position: isResult ? "absolute" : undefined,
+              top: isResult ? 55 * (index - 1) + 8 : undefined,
+              left: isResult ? 0 : undefined,
+            }}
           />
         ))
       ) : (
@@ -94,3 +103,7 @@ const IconContainer = styled.div`
 
   transform: translate(-50%, -50%);
 `;
+
+// const StyledFrameImg = styled(StyledImg)<{ isResult: boolean }>`
+//   transform: ${({ isResult }) => (isResult ? "rotate(-90deg)" : undefined)};
+// `;

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import CTAButton from "./components/CTAButton";
 import Arrow from "./components/icons/Arrow";
+import HomeIcon from "./components/icons/HomeIcon";
 import CameraStep from "./components/steps/CameraStep";
 import CompleteStep from "./components/steps/CompleteStep";
 import FrameSelectStep from "./components/steps/FrameSelectStep";
@@ -27,8 +28,8 @@ function App() {
   const elements = [
     <PhotoSelectStep key="PhotoSelectStep" state={state} setState={setState} />,
     <FrameSelectStep key="FrameSelectStep" state={state} setState={setState} />,
-    <CameraStep key="CameraStep" />,
-    <CompleteStep key="CompleteStep" />,
+    <CameraStep key="CameraStep" state={state} setState={setState} />,
+    <CompleteStep key="CompleteStep" state={state} />,
   ];
 
   const { currentElement, currentStep, moveBackward, moveForward } = useStep({
@@ -64,13 +65,21 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    if (currentStep === 2 && getCTAState(currentStep).isActive) {
+      moveForward();
+    }
+  }, [currentStep, state.capture.length]);
+
   return (
-    <main>
-      {currentStep > 0 && (
+    <>
+      {currentStep !== 2 && (
         <Header>
-          <button onClick={() => moveBackward()}>
-            <Arrow />
-          </button>
+          {currentStep > 0 && (
+            <button onClick={() => (currentStep === 3 ? window.location.reload() : moveBackward())}>
+              {currentStep === 3 ? <HomeIcon /> : <Arrow />}
+            </button>
+          )}
         </Header>
       )}
       {currentElement}
@@ -85,7 +94,7 @@ function App() {
           {getCTAState(currentStep).text}
         </FixedCTAButton>
       )}
-    </main>
+    </>
   );
 }
 
@@ -100,7 +109,7 @@ const FixedCTAButton = styled(CTAButton)<{ width: number }>`
 
 const Header = styled.header`
   width: 100%;
-  height: 42px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: flex-start;

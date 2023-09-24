@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import ReactModal from "react-modal";
+import styled from "@emotion/styled";
 
 import theme from "../styles/theme";
 
@@ -15,6 +16,7 @@ const customStyles = {
     backdropFilter: "blur(5px)",
   },
   content: {
+    maxWidth: "410px",
     width: "calc(100% - 70px)",
     height: "256px",
     borderRadius: "15px",
@@ -36,19 +38,19 @@ const Modal = ({ isOpen, onOutsideClick, children }: ModalProps) => {
       onRequestClose={onOutsideClick}
       shouldCloseOnOverlayClick
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "100%",
-          height: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {children}
-      </div>
+      <ModalContentsWrapper>{children}</ModalContentsWrapper>
     </ReactModal>
   );
 };
 export default Modal;
+
+const ModalContentsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+`;

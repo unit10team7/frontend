@@ -40,6 +40,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  padding-bottom: 120px;
 `;
 
 const SliderContainer = styled.div`

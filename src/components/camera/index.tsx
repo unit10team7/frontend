@@ -2,16 +2,21 @@ import styled from "@emotion/styled";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
 
+import { State } from "../../types";
 import Control from "./Control";
 import CameraView from "./View";
 
 const MAX_COUNT = 4;
-const TEST_IMG_URL =
-  "https://dimg.donga.com/ugc/CDB/WEEKLY/Article/64/c3/43/fd/64c343fd0e85d2738250.jpg";
 
 export type CameraType = "user" | "environment";
 
-const Camera = () => {
+const Camera = ({
+  state,
+  setState,
+}: {
+  state: State;
+  setState: React.Dispatch<React.SetStateAction<State>>;
+}) => {
   const [cameraType, setCameraType] = useState<CameraType>("user");
   const [stepCount, setStepCount] = useState(0);
   const [photoImageList, setPhotoImage] = useState<string[]>([]);
@@ -28,6 +33,10 @@ const Camera = () => {
     if (imageSrc) {
       setPhotoImage((prev) => {
         return [...prev, imageSrc];
+      });
+
+      setState((prev) => {
+        return { ...prev, capture: [...prev.capture, imageSrc] };
       });
     }
   }, [stepCount]);
@@ -62,11 +71,11 @@ const Camera = () => {
     <Section>
       {/* 카메라 영역 */}
       <CameraView
-        layoutType="vertical"
+        layoutType={state.frame.direction}
         ref={webcamRef}
         timerInfo={timerInfo}
         type={cameraType}
-        url={TEST_IMG_URL}
+        url={state.pose.map((item) => item.imageUrl)}
         stepCount={stepCount}
       />
       {/* 카메라 제어 영역 */}
