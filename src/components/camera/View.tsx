@@ -37,6 +37,13 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
     setSize((layout.offsetWidth ?? 0) - 32);
   }, [layout.offsetWidth]);
 
+  const callback = () => {
+    setSize((layout.offsetWidth ?? 0) - 32);
+  };
+  const observer = new ResizeObserver(callback);
+
+  observer.observe(layout);
+
   const videoConstraints = {
     facingMode: type,
     width: { min: 100, max: 10000, ideal: size },

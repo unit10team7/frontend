@@ -35,7 +35,7 @@ const CompleteStep = ({ state }: { state: State }) => {
       <Frame
         {...state.frame}
         imgSrc={state.capture.map((captureItem, index) => ({ imageUrl: captureItem, id: index }))}
-        style={{ transform: "scale(1.8)", transformOrigin: "bottom" }}
+        style={{ transform: "scale(1.7)", transformOrigin: "bottom" }}
         isResult
       />
 
