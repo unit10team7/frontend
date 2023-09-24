@@ -62,7 +62,6 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
       <Webcam
         ref={ref}
         audio={DISABLE_AUDIO}
-        mirrored
         screenshotFormat={FORMAT_TPYE}
         videoConstraints={videoConstraints}
       />
