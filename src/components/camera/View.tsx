@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef } from "react";
 import Webcam from "react-webcam";
 
 import useCountdown from "../../hooks/useCountdown";
