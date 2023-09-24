@@ -36,6 +36,7 @@ const CompleteStep = ({ state }: { state: State }) => {
         {...state.frame}
         imgSrc={state.capture.map((captureItem, index) => ({ imageUrl: captureItem, id: index }))}
         style={{ transform: "scale(1.8)", transformOrigin: "bottom" }}
+        isResult
       />
 
       <DownloadContainer>
