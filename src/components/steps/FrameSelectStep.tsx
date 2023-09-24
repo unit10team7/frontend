@@ -40,16 +40,15 @@ export default FrameSelectStep;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 32px;
 `;
 
 const FramesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
-  row-gap: 36px;
+  row-gap: 16px;
   column-gap: 12px;
-  height: 100%;
 `;
 
 const StyledButton = styled.button`
