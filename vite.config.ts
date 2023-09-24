@@ -5,7 +5,4 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/frontend/",
-  optimizeDeps: {
-    exclude: ["embla-carousel-react"],
-  },
 });
