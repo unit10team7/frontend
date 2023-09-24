@@ -1,9 +1,13 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 
-const API_URL = "http://ec2-43-201-77-73.ap-northeast-2.compute.amazonaws.com:8080";
+const API_URL = "https://4826-123-111-222-168.ngrok-free.app/";
 
 const instance = axios.create({
   baseURL: API_URL,
+  headers: {
+    "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "69420",
+  },
 });
 
 const interceptorResponseFulfilled = (res: AxiosResponse) => {
