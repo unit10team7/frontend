@@ -61,7 +61,8 @@ const Container = styled.div`
   gap: 60px;
   justify-content: center;
   align-items: center;
-  height: calc(100dvh - 60px);
+  height: calc(100dvh - 120px);
+  padding-top: 60px;
 `;
 
 const Description = styled.span`
