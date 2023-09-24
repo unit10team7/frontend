@@ -31,9 +31,11 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
 ) {
   const [size, setSize] = useState<number>(0);
 
+  const layout = document.querySelector("#layout") as HTMLElement;
+
   useLayoutEffect(() => {
-    setSize((document.querySelector("#layout")?.getBoundingClientRect().width ?? 0) - 32);
-  }, []);
+    setSize((layout.offsetWidth ?? 0) - 32);
+  }, [layout.offsetWidth]);
 
   const videoConstraints = {
     facingMode: type,
