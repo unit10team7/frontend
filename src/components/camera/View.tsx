@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { forwardRef, useLayoutEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import Webcam from "react-webcam";
 
 import useCountdown from "../../hooks/useCountdown";
@@ -30,17 +30,19 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
   ref,
 ) {
   const [size, setSize] = useState<number>(0);
+  const [forceUpdate, setForceUpdate] = useState<number>(0);
 
-  const layout = document.querySelector("#layout") as HTMLElement;
+  useEffect(() => {
+    const layout = document.querySelector("#layout") as HTMLElement;
 
-  useLayoutEffect(() => {
     setSize((layout.offsetWidth ?? 0) - 32);
-  }, [layout.offsetWidth]);
+    setForceUpdate(forceUpdate + 1);
+  }, []);
 
   const videoConstraints = {
     facingMode: type,
-    width: { min: 100, max: 10000, ideal: size },
-    height: { min: 100, max: 10000, ideal: window.innerHeight - 128 },
+    width: { min: 100, max: 1000, ideal: size },
+    height: { min: 100, max: 1000, ideal: window.innerHeight - 128 },
   };
 
   return (
@@ -53,6 +55,7 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
       <Step stepCount={stepCount} layout={layoutType} />
       <PosePhoto url={url[stepCount]} layout={layoutType} />
       <Webcam
+        key={forceUpdate}
         ref={ref}
         audio={DISABLE_AUDIO}
         screenshotFormat={FORMAT_TPYE}
