@@ -32,7 +32,7 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
   const videoConstraints = {
     facingMode: type,
     width: { ideal: window.innerWidth },
-    height: { ideal: window.innerHeight - 128 },
+    height: { ideal: window.innerHeight },
   };
 
   return (
