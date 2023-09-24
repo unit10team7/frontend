@@ -3,6 +3,7 @@ import { forwardRef } from "react";
 import Webcam from "react-webcam";
 
 import useCountdown from "../../hooks/useCountdown";
+import { isMobile } from "../../utils/isMobile";
 
 import { CameraType } from ".";
 
@@ -31,8 +32,8 @@ const CameraView = forwardRef<Webcam, CameraViewProps>(function CameraView(
 ) {
   const videoConstraints = {
     facingMode: type,
-    width: { ideal: window.innerWidth - 32 },
-    height: { ideal: window.innerHeight - 128 },
+    width: { ideal: isMobile() ? 400 : window.innerWidth - 32 },
+    height: { ideal: isMobile() ? 800 : window.innerHeight - 128 },
   };
 
   return (
